@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Serif Display', serif;
+  background-color: #fffbea;
+  color: #4b2e2e;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    #f8d7d6 0%,
+    #f8d7d6 60%,
+    #fffbea 100%
+  );
+ 
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* Left side: dot + title */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ff6188;
+  border-radius: 50%;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #6a533f;
+}
+
+.title p {
+  margin: 0;
+  font-size: 12px;
+  color: #8c6e6e;
+}
+
+/* Right side: nav links */
+.navbar-right {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #cc4e74;
+  font-weight: 300px;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #cd7a98;
+}
+
+/* Optional: underline effect on hover */
+.navbar-right a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #a0ab89;
+  width: 0%;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.navbar-right a:hover::after {
+  width: 100%;
+}
+
+
+
+.about-page {
+  max-width: 1080px;
+  margin: auto;
+  padding: 60px 40px;
+}
+
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+/* === Photo Slide-In Animation === */
+.photo {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.photo img {
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.bio {
+  flex: 1;
+}
+
+.bio p {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #802f61;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+/* === Interests Section Fade In === */
+.interests {
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.interests h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #7c4343;
+  margin-bottom: 20px;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.interests h2 .underline {
+  display: inline-block;
+  border-bottom: 3px solid  #a0ab89; 
+  padding-bottom: 2px;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.tags span {
+  background-color: #f6d5cb;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2e1e1e;
+  font-family: 'League Spartan', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;        
+  height: 50px;               
+  min-width: 180px;           
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* === Tag Hover Effect === */
+.tags span:hover {
+  transform: translateY(-5px);
+  background-color: #a0ab89;
+  color: #fff;
+}
+
+.tags i {
+  color: #c7008f;
+  font-size: 16px;
+}
+
+.tags i:hover {
+  color: #fff;
+}
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .photo img {
+    width: 160px;
+  }
+
+  .bio {
+    margin-top: 20px;
+  }
+
+  .bio p {
+    font-size: 14px;
+  }
+
+  .tags {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    justify-content: center;
+  }
+}
+
+/* === Bio Slide-In from Right === */
+.bio {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1s forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,125 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fffbea;
+  font-family: 'DM Serif Display', serif;
+  color: #4b2e2e;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    #f8d7d6 0%,
+    #f8d7d6 60%,
+    #fffbea 100%
+  );
+ 
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* Left side: dot + title */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ff6188;
+  border-radius: 50%;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #6c735d;
+}
+
+/* Right side: nav links */
+.navbar-right {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #cc4e74;
+  font-weight: 300px;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #cd7a98;
+}
+
+/* Optional: underline effect on hover */
+.navbar-right a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #a0ab89;
+  width: 0%;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.navbar-right a:hover::after {
+  width: 100%;
+}
+
+
+/* Contact Section */
+.contact-section {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #cc4e74;
+}
+
+.contact-email {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #4b2e2e;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #cc4e74;
+  transform: scale(1.2);
+}

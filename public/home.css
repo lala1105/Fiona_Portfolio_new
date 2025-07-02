@@ -1,0 +1,266 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'DM Serif Display', serif;
+  background: linear-gradient(to bottom, #fffbea 70%, #fddde6 100%);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* === Navbar === */
+/* Navbar Container */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    #f8d7d6 0%,
+    #f8d7d6 60%,
+    #fffbea 100%
+  );
+ 
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* Left side: dot + title */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ff6188;
+  border-radius: 50%;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #6c735d;
+}
+
+/* Right side: nav links */
+.navbar-right {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #cc4e74;
+  font-weight: 300px;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #cd7a98;
+}
+
+/* Optional: underline effect on hover */
+.navbar-right a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #a0ab89;
+  width: 0%;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.navbar-right a:hover::after {
+  width: 100%;
+}
+
+
+/* === Hero Section === */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 100px;
+  position: relative;
+  background-color: #fffbea;
+  overflow: hidden;
+  margin-top: 75px;
+}
+
+.main-text {
+  max-width: 900px;
+  margin-left: 400px;
+  margin-bottom: 150px;
+  z-index: 1;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.main-text h1 {
+  font-size: 50px;
+  color: #e84e7c;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.main-text p {
+  font-size: 18px;
+  font-weight: 200;
+  color: #bb6f57;
+  margin-top: 0;
+}
+
+.corner-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 480px;
+  height: auto;
+  opacity: 0.7;
+  z-index: 0;
+  margin-left: 25px;
+  animation: slideInLeft 1.5s ease-out forwards;
+}
+
+/* === Social Icons === */
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.social-icons a {
+  color: #5e372bc6;
+  font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ed9c9b;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .navbar-right a {
+    padding: 8px 0;
+  }
+
+  .main {
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .main-text {
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .main-text h1 {
+    font-size: 32px;
+  }
+
+  .corner-image {
+    width: 280px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+.cv-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ebbab9cd;
+  color: #e84e7c;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+  background-color: #f5d7d7cd;
+}
+

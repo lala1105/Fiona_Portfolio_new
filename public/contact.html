@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="contact.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=League+Spartan:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+ <header>
+    <div class="navbar-left">
+      <div class="dot"></div>
+      <div class="title">
+        <h1>Fiona Latisha</h1>
+    </div>
+    </div>
+    <nav class="navbar-right">
+      <a href="home.html" class="active">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html">Resume</a>
+      <a href="skills.html">Skills</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact2.html">Contact</a>
+    </nav>
+  </header>
+
+ 
+  <main class="contact-container">
+    <h1 class="section-title">Let's Connect</h1>
+    <p class="subtitle">I'd love to hear from you! Whether it's a project, opportunity, or just to say hi 😊</p>
+
+    <div class="contact-content">
+      <form class="contact-form" id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+        <div class="g-recaptcha" data-sitekey="6LeR23MrAAAAABWKiUuEuIZJ1EBRIK8enbXzwbAh"></div>
+
+        <div id="formMessage" style="margin-top: 10px; color: green;"></div>
+        <button type="submit">Send Message</button>
+      </form>
+
+
+      <div class="contact-info">
+        <h3>Contact Info</h3>
+        <p><strong>Email:</strong> flatishaa1@gmail.com</p>
+        <p><strong>Location:</strong> Cikarang, Indonesia</p>
+      </div>
+    </div>
+  </main>
+    <script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent page reload
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const response = await fetch('/send', {
+      method: 'POST',
+      body: formData
+    });
+
+    const messageDiv = document.getElementById('formMessage');
+
+    if (response.ok) {
+      messageDiv.textContent = 'Message sent successfully!';
+      messageDiv.style.color = 'green';
+      form.reset();
+      grecaptcha.reset(); // reset CAPTCHA
+    } else {
+      messageDiv.textContent = 'Failed to send message. Please try again.';
+      messageDiv.style.color = 'red';
+    }
+  });
+</script>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Fiona Latisha. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
+

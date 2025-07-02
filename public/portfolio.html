@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=League+Spartan:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="navbar-left">
+      <div class="dot"></div>
+      <div class="title">
+        <h1>Fiona Latisha</h1>
+    </div>
+    </div>
+    <nav class="navbar-right">
+      <a href="home.html" class="active">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html">Resume</a>
+      <a href="skills.html">Skills</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact2.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="portfolio-page">
+    <h1 class="section-title">My Projects</h1>
+    
+    <div class="portfolio-grid">
+     <div class="portfolio-item">
+  <img src="images/Your make up.png" alt="Project 1">
+  <h3>Your Make up</h3>
+  <div class="tech-badges">
+    <span class="badge">HTML</span>
+    <span class="badge">CSS</span>
+  </div>
+  <p>A design website using HTML and CSS for an online cosmetics shop.</p>
+  <button class="view-btn" onclick="openModal('images/full_your_makeup.png')">View Project</button>
+</div>
+
+<div class="portfolio-item">
+  <img src="images/hospital.png" alt="Project 2">
+  <h3>Hospital Management</h3>
+  <div class="tech-badges">
+    <span class="badge">HTML</span>
+    <span class="badge">CSS</span>
+    <span class="badge">PHP</span>
+    <span class="badge">MySQL</span>
+  </div>
+  <p>Built with PHP and MySQL, this site manages patients, doctors, prescriptions, and more.</p>
+  <button class="view-btn" onclick="openModal('images/full_hospital.png')">View Project</button>
+</div>
+
+<div class="portfolio-item">
+  <img src="images/chatbot.jpg" alt="Project 3">
+  <h3>Chatbot</h3>
+  <div class="tech-badges">
+    <span class="badge">Node.js</span>
+    <span class="badge">Gemini API</span>
+    <span class="badge">JavaScript</span>
+  </div>
+  <p>A Node.js medical chatbot powered by Google Gemini for symptom checking and advice.</p>
+  <button class="view-btn" onclick="openModal('images/chatbot.jpg')">View Project</button>
+</div>
+
+<div class="portfolio-item">
+  <img src="images/guide.png" alt="Project 4">
+  <h3>Guide Application</h3>
+  <div class="tech-badges">
+    <span class="badge">Java</span>
+    <span class="badge">Firebase</span>
+    <span class="badge">ML Kit</span>
+    <span class="badge">Sensors</span>
+  </div>
+  <p>A tourist guide app using ML Kit, Firebase, and device sensors to offer translation, tips, and wishlists.</p>
+  <button class="view-btn" onclick="openModal('images/guide.png')">View Project</button>
+</div>
+
+<div class="portfolio-item">
+  <img src="images/home.png" alt="Project 5">
+  <h3>This Website</h3>
+  <div class="tech-badges">
+    <span class="badge">HTML</span>
+    <span class="badge">CSS</span>
+    <span class="badge">JavaScript</span>
+    <span class="badge">Node.js</span>
+    <span class="badge">Nodemailer</span>
+  </div>
+  <p>A personal portfolio showcasing my skills, projects, and passion for web development and cybersecurity.</p>
+</div>
+
+    </div>
+
+    <!-- Modal moved OUTSIDE of .portfolio-grid -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <span class="close-btn">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Modal Script -->
+    <script>
+      function openModal(imageSrc) {
+        document.getElementById("modalImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    </script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      const items = document.querySelectorAll(".portfolio-item");
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      items.forEach(item => {
+        observer.observe(item);
+      });
+    </script>
+  </main>
+</body>
+</html>
